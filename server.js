@@ -1,14 +1,19 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-express = require('express'),
+express = require('express')
+PORT = process.env.PORT || 5000
 app = express();
 
-app.get('/*', (req, res) => res.send('Hello World!'));
+app.get('/', (req, res) => res.send('Hello World!'));
 
 app.listen(PORT, () => console.log('Example app listening on port 3000!'));
 
-mongoose.Promise = global.Promise;
-mongoose.connect('mongodb+srv://root:<password>@cluster0-rxjya.mongodb.net/test?retryWrites=true', {
+// mongoose.Promise = global.Promise;
+// mongoose.connect('mongodb+srv://root:<password>@cluster0-rxjya.mongodb.net/test?retryWrites=true', {
+//     useNewUrlParser: true
+// });
+
+mongoose.connect('mongodb://localhost/nodeappdatabase', {
     useNewUrlParser: true
 });
 
